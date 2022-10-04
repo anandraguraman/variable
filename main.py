@@ -1,15 +1,9 @@
-def on_button_pressed_a():
-    global counter
-    counter += 1
-input.on_button_pressed(Button.A, on_button_pressed_a)
+current_temperature = 0
 
-def on_button_pressed_ab():
-    basic.show_number(0)
-input.on_button_pressed(Button.AB, on_button_pressed_ab)
-
-def on_button_pressed_b():
-    global counter
-    counter += 1
-input.on_button_pressed(Button.B, on_button_pressed_b)
-
-counter = 0
+def on_forever():
+    global current_temperature
+    current_temperature = input.temperature()
+    basic.show_number(current_temperature)
+    basic.pause(1000)
+    basic.clear_screen()
+basic.forever(on_forever)
